@@ -17,7 +17,6 @@
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
-      position: relative;
     }
 
     .glitch {
@@ -25,7 +24,6 @@
       position: relative;
       color: red;
       animation: glitch 1s infinite;
-      z-index: 2;
     }
 
     @keyframes glitch {
@@ -41,46 +39,90 @@
       margin-top: 1rem;
       font-size: 1.2rem;
       color: gray;
-      z-index: 2;
     }
 
-    /* Krvavé striekance ako pozadie */
-    .blood-splatters {
-      pointer-events: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background:
-        url('https://i.imgur.com/f9pYX5b.png') 10% 20% no-repeat,
-        url('https://i.imgur.com/43v7qVl.png') 70% 10% no-repeat,
-        url('https://i.imgur.com/MWcI1xp.png') 50% 80% no-repeat;
-      background-size: 150px, 120px, 100px;
-      z-index: 1;
-      opacity: 0.6;
+    #content {
+      display: none; /* skryté, kým sa nezadá správne heslo */
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Podpis dole v rohu */
-    footer {
-      position: fixed;
-      bottom: 5px;
-      right: 10px;
-      font-size: 10px;
-      color: #aaa;
+    #password-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="password"] {
       font-family: 'Share Tech Mono', monospace;
-      z-index: 3;
-      user-select: none;
-      opacity: 0.8;
+      font-size: 1.2rem;
+      padding: 0.4rem 0.6rem;
+      border: 2px solid red;
+      background: black;
+      color: red;
+      outline: none;
+      margin-bottom: 0.5rem;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.2rem;
+      padding: 0.4rem 1rem;
+      border: 2px solid red;
+      background: black;
+      color: red;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: red;
+      color: black;
+    }
+
+    #error {
+      color: #ff4c4c;
+      font-size: 1rem;
+      height: 1.2rem;
+      margin-top: 0.3rem;
+      visibility: hidden;
     }
   </style>
 </head>
 <body>
-  <div class="blood-splatters"></div>
+  <div id="password-box">
+    <input type="password" id="password-input" placeholder="Enter password" />
+    <button onclick="checkPassword()">Submit</button>
+    <div id="error">Wrong password!</div>
+  </div>
 
-  <div class="glitch">742617000027</div>
-  <p>You shouldn't be here.</p>
+  <div id="content">
+    <div class="glitch">742617000027</div>
+    <p>You shouldn't be here.</p>
+  </div>
 
-  <footer>By Beleth</footer>
+  <script>
+    const correctPassword = 'letmein'; // tu nastav svoje heslo
+
+    function checkPassword() {
+      const input = document.getElementById('password-input').value;
+      const errorMsg = document.getElementById('error');
+      if(input === correctPassword) {
+        document.getElementById('password-box').style.display = 'none';
+        document.getElementById('content').style.display = 'flex';
+      } else {
+        errorMsg.style.visibility = 'visible';
+      }
+    }
+
+    // Optional: enter key submits password
+    document.getElementById('password-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        checkPassword();
+      }
+    });
+  </script>
 </body>
 </html>

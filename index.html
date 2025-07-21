@@ -1,7 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>742617000027</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      margin: 0;
+      background: black;
+      color: red;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .glitch {
+      font-size: 3rem;
+      position: relative;
+      color: red;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 2px lime, 2px -2px magenta; }
+      40% { text-shadow: 2px 2px yellow, -2px -2px blue; }
+      60% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      80% { text-shadow: 2px -2px lime, -2px 2px magenta; }
+      100% { text-shadow: 0 0 0 red; }
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: gray;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <div class="glitch">742617000027</div>
+  <p>You shouldn't be here.</p>
 </body>
 </html>

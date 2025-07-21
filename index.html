@@ -3,31 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <title>742617000027</title>
-
-  <!-- font pre text a input -->
-  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
     body {
       margin: 0;
-      background: #0a0000;
-      color: #b30000;
-      font-family: 'UnifrakturCook', cursive;
+      background: black;
+      color: red;
+      font-family: 'Share Tech Mono', monospace;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
-      text-shadow:
-        0 0 5px #b30000,
-        0 0 10px #b30000,
-        0 0 20px #660000,
-        0 0 30px #660000;
+    }
+
+    .glitch {
+      font-size: 3rem;
+      position: relative;
+      color: red;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 2px lime, 2px -2px magenta; }
+      40% { text-shadow: 2px 2px yellow, -2px -2px blue; }
+      60% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      80% { text-shadow: 2px -2px lime, -2px 2px magenta; }
+      100% { text-shadow: 0 0 0 red; }
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: gray;
     }
 
     #content {
-      display: none;
+      display: none; /* skryté, kým sa nezadá správne heslo */
       flex-direction: column;
       align-items: center;
     }
@@ -36,113 +51,51 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
     }
 
     input[type="password"] {
-      font-family: 'Metal Mania', cursive;
-      font-size: 3rem;
-      padding: 0.7rem 1.2rem;
-      border: 3px solid #990000;
-      background: #330000;
-      color: #ff0000;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.2rem;
+      padding: 0.4rem 0.6rem;
+      border: 2px solid red;
+      background: black;
+      color: red;
       outline: none;
-      width: 380px;
+      margin-bottom: 0.5rem;
+      width: 200px;
       text-align: center;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      box-shadow:
-        0 0 8px #990000,
-        inset 0 0 15px #cc0000;
-      transition: border-color 0.3s ease;
-      border-radius: 5px;
-      user-select: text;
-    }
-
-    input[type="password"]:focus {
-      border-color: #ff3300;
-      box-shadow:
-        0 0 15px #ff3300,
-        inset 0 0 20px #ff3300;
-      background: #440000;
-      color: #ff4444;
     }
 
     button {
-      font-family: 'Metal Mania', cursive;
-      font-size: 2.8rem;
-      padding: 0.6rem 2.4rem;
-      border: 3px solid #990000;
-      background: #440000;
-      color: #ff3300;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.2rem;
+      padding: 0.4rem 1rem;
+      border: 2px solid red;
+      background: black;
+      color: red;
       cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      box-shadow:
-        0 0 7px #cc0000;
-      border-radius: 5px;
-      transition: background 0.3s, color 0.3s;
-      user-select: none;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background: #ff0000;
-      color: #330000;
-      box-shadow:
-        0 0 18px #ff0000;
+      background: red;
+      color: black;
     }
 
     #error {
-      color: #ff6666;
-      font-size: 1.6rem;
-      height: 1.6rem;
+      color: #ff4c4c;
+      font-size: 1rem;
+      height: 1.2rem;
       margin-top: 0.3rem;
       visibility: hidden;
-      font-family: 'Metal Mania', cursive;
-      user-select: none;
-      text-shadow: 0 0 5px #cc0000;
-    }
-
-    .glitch {
-      font-family: 'UnifrakturCook', cursive;
-      font-size: 7rem;
-      position: relative;
-      color: #b30000;
-      animation: glitch 1s infinite;
-      letter-spacing: 0.2em;
-      user-select: none;
-      text-shadow:
-        0 0 7px #b30000,
-        0 0 15px #660000,
-        0 0 20px #660000;
-      margin-bottom: 0.4rem;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 3px 0 #b30000, -3px 0 cyan; }
-      20% { text-shadow: -3px 3px lime, 3px -3px magenta; }
-      40% { text-shadow: 3px 3px yellow, -3px -3px blue; }
-      60% { text-shadow: -3px 0 #b30000, 3px 0 cyan; }
-      80% { text-shadow: 3px -3px lime, -3px 3px magenta; }
-      100% { text-shadow: 0 0 0 #b30000; }
-    }
-
-    p {
-      font-family: 'Metal Mania', cursive;
-      font-size: 2.3rem;
-      color: #aa2222;
-      margin-top: 0;
-      user-select: none;
-      text-shadow:
-        0 0 6px #660000;
     }
   </style>
 </head>
 <body>
   <div id="password-box">
-    <input type="password" id="password-input" placeholder="ENTER PASSWORD" />
-    <button onclick="checkPassword()">SUBMIT</button>
-    <div id="error">WRONG PASSWORD!</div>
+    <input type="password" id="password-input" placeholder="Enter password" />
+    <button onclick="checkPassword()">Submit</button>
+    <div id="error">Wrong password!</div>
   </div>
 
   <div id="content">
@@ -151,10 +104,10 @@
   </div>
 
   <script>
-    const correctPassword = 'letmein'; // zmeň heslo podľa seba
+    const correctPassword = 'letmein'; // tu nastav svoje heslo
 
     function checkPassword() {
-      const input = document.getElementById('password-input').value.toLowerCase();
+      const input = document.getElementById('password-input').value;
       const errorMsg = document.getElementById('error');
       if(input === correctPassword) {
         document.getElementById('password-box').style.display = 'none';
@@ -164,6 +117,7 @@
       }
     }
 
+    // Optional: enter key submits password
     document.getElementById('password-input').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
         checkPassword();

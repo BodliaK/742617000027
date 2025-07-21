@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>742617000027</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
@@ -17,6 +17,7 @@
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     .glitch {
@@ -24,6 +25,7 @@
       position: relative;
       color: red;
       animation: glitch 1s infinite;
+      z-index: 2;
     }
 
     @keyframes glitch {
@@ -39,11 +41,46 @@
       margin-top: 1rem;
       font-size: 1.2rem;
       color: gray;
+      z-index: 2;
+    }
+
+    /* Krvavé striekance ako pozadie */
+    .blood-splatters {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:
+        url('https://i.imgur.com/f9pYX5b.png') 10% 20% no-repeat,
+        url('https://i.imgur.com/43v7qVl.png') 70% 10% no-repeat,
+        url('https://i.imgur.com/MWcI1xp.png') 50% 80% no-repeat;
+      background-size: 150px, 120px, 100px;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    /* Podpis dole v rohu */
+    footer {
+      position: fixed;
+      bottom: 5px;
+      right: 10px;
+      font-size: 10px;
+      color: #aaa;
+      font-family: 'Share Tech Mono', monospace;
+      z-index: 3;
+      user-select: none;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
+  <div class="blood-splatters"></div>
+
   <div class="glitch">742617000027</div>
   <p>You shouldn't be here.</p>
+
+  <footer>By Beleth</footer>
 </body>
 </html>

@@ -3,46 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <title>742617000027</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+  <!-- nový font -->
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&display=swap" rel="stylesheet">
+
+  <style>
     body {
       margin: 0;
-      background: black;
-      color: red;
-      font-family: 'Share Tech Mono', monospace;
+      background: #0a0000;
+      color: #ff0000;
+      font-family: 'Nosifer', cursive;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
-    }
-
-    .glitch {
-      font-size: 3rem;
-      position: relative;
-      color: red;
-      animation: glitch 1s infinite;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
-      20% { text-shadow: -2px 2px lime, 2px -2px magenta; }
-      40% { text-shadow: 2px 2px yellow, -2px -2px blue; }
-      60% { text-shadow: -2px 0 red, 2px 0 cyan; }
-      80% { text-shadow: 2px -2px lime, -2px 2px magenta; }
-      100% { text-shadow: 0 0 0 red; }
-    }
-
-    p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: gray;
+      text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #8b0000,
+        0 0 30px #8b0000;
     }
 
     #content {
-      display: none; /* skryté, kým sa nezadá správne heslo */
+      display: none;
       flex-direction: column;
       align-items: center;
     }
@@ -51,51 +36,106 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 15px;
     }
 
     input[type="password"] {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1.2rem;
-      padding: 0.4rem 0.6rem;
-      border: 2px solid red;
-      background: black;
-      color: red;
+      font-family: 'Creepster', cursive;
+      font-size: 2.5rem;
+      padding: 0.6rem 1rem;
+      border: 3px solid #ff0000;
+      background: #1a0000;
+      color: #ff4444;
       outline: none;
-      margin-bottom: 0.5rem;
-      width: 200px;
+      width: 300px;
       text-align: center;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      box-shadow:
+        0 0 5px #ff0000,
+        inset 0 0 10px #ff4444;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="password"]:focus {
+      border-color: #ff5555;
+      box-shadow:
+        0 0 10px #ff6666,
+        inset 0 0 15px #ff6666;
     }
 
     button {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1.2rem;
-      padding: 0.4rem 1rem;
-      border: 2px solid red;
-      background: black;
-      color: red;
+      font-family: 'Creepster', cursive;
+      font-size: 2rem;
+      padding: 0.5rem 2rem;
+      border: 3px solid #ff0000;
+      background: #300000;
+      color: #ff5555;
       cursor: pointer;
-      transition: background 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      box-shadow:
+        0 0 5px #ff0000;
+      transition: background 0.3s, color 0.3s;
     }
 
     button:hover {
-      background: red;
-      color: black;
+      background: #ff0000;
+      color: #300000;
+      box-shadow:
+        0 0 15px #ff0000;
     }
 
     #error {
-      color: #ff4c4c;
-      font-size: 1rem;
-      height: 1.2rem;
+      color: #ff6666;
+      font-size: 1.4rem;
+      height: 1.4rem;
       margin-top: 0.3rem;
       visibility: hidden;
+      font-family: 'Creepster', cursive;
+    }
+
+    .glitch {
+      font-family: 'Nosifer', cursive;
+      font-size: 6rem;
+      position: relative;
+      color: #ff0000;
+      animation: glitch 1s infinite;
+      letter-spacing: 0.15em;
+      user-select: none;
+      text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #8b0000,
+        0 0 30px #8b0000;
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 #ff0000, -2px 0 cyan; }
+      20% { text-shadow: -2px 2px lime, 2px -2px magenta; }
+      40% { text-shadow: 2px 2px yellow, -2px -2px blue; }
+      60% { text-shadow: -2px 0 #ff0000, 2px 0 cyan; }
+      80% { text-shadow: 2px -2px lime, -2px 2px magenta; }
+      100% { text-shadow: 0 0 0 #ff0000; }
+    }
+
+    p {
+      font-family: 'Creepster', cursive;
+      font-size: 2rem;
+      color: #aa2222;
+      margin-top: 0;
+      user-select: none;
+      text-shadow:
+        0 0 4px #660000;
     }
   </style>
 </head>
 <body>
   <div id="password-box">
-    <input type="password" id="password-input" placeholder="Enter password" />
-    <button onclick="checkPassword()">Submit</button>
-    <div id="error">Wrong password!</div>
+    <input type="password" id="password-input" placeholder="ENTER PASSWORD" />
+    <button onclick="checkPassword()">SUBMIT</button>
+    <div id="error">WRONG PASSWORD!</div>
   </div>
 
   <div id="content">
@@ -104,10 +144,10 @@
   </div>
 
   <script>
-    const correctPassword = 'letmein'; // tu nastav svoje heslo
+    const correctPassword = 'letmein'; // uprav si heslo
 
     function checkPassword() {
-      const input = document.getElementById('password-input').value;
+      const input = document.getElementById('password-input').value.toLowerCase();
       const errorMsg = document.getElementById('error');
       if(input === correctPassword) {
         document.getElementById('password-box').style.display = 'none';
@@ -117,7 +157,6 @@
       }
     }
 
-    // Optional: enter key submits password
     document.getElementById('password-input').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
         checkPassword();

@@ -17,6 +17,7 @@
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     .glitch {
@@ -42,7 +43,7 @@
     }
 
     #content {
-      display: none; /* skryté, kým sa nezadá správne heslo */
+      display: none;
       flex-direction: column;
       align-items: center;
     }
@@ -55,20 +56,20 @@
 
     input[type="password"] {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 1.2rem;
-      padding: 0.4rem 0.6rem;
+      font-size: 1.4rem;
+      padding: 0.6rem 0.8rem;
       border: 2px solid red;
       background: black;
       color: red;
       outline: none;
       margin-bottom: 0.5rem;
-      width: 200px;
+      width: 250px;
       text-align: center;
     }
 
     button {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       padding: 0.4rem 1rem;
       border: 2px solid red;
       background: black;
@@ -89,6 +90,23 @@
       margin-top: 0.3rem;
       visibility: hidden;
     }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: red;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ff4c4c;
+    }
   </style>
 </head>
 <body>
@@ -103,8 +121,12 @@
     <p>You shouldn't be here.</p>
   </div>
 
+  <footer>
+    <a href="https://www.instagram.com/_kubuskooo_/" target="_blank">By Beleth</a>
+  </footer>
+
   <script>
-    const correctPassword = 'letmein'; // tu nastav svoje heslo
+    const correctPassword = 'letmein'; // zmeň podľa potreby
 
     function checkPassword() {
       const input = document.getElementById('password-input').value;
@@ -117,7 +139,6 @@
       }
     }
 
-    // Optional: enter key submits password
     document.getElementById('password-input').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
         checkPassword();

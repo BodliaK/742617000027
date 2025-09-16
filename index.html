@@ -24,14 +24,14 @@
       width: 100%;
       background-color: black;
       padding: 1rem 2rem;
-      display: flex;
+      display: none; /* Skryté pred prihlásením */
       justify-content: center;
       gap: 5rem;
       border-bottom: 1px solid red;
-      position: sticky;
+      position: fixed; /* zmenené z sticky na fixed */
       top: 0;
-      z-index: 10;
-      display: none; /* Skryté pred prihlásením */
+      left: 0;
+      z-index: 1000;
     }
 
     nav a {
@@ -51,7 +51,8 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 2rem;
+      padding: 5rem 2rem 2rem; /* padding-top pre miesto pod fix menu */
+      text-align: center;
     }
 
     #password-box, #content {

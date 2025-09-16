@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Poems</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: black;
+      color: red;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 100%;
+      background-color: black;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      border-bottom: 1px solid red;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: red;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4c4c;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.3rem;
+      padding: 0.4rem 1rem;
+      border: 2px solid red;
+      background: black;
+      color: red;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background: red;
+      color: black;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid red;
+    }
+
+    footer a {
+      color: red;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ff4c4c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigácia -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="poems.html">Poems</a>
+    <a href="info.html">Info</a>
+  </nav>
+
+  <!-- Obsah -->
+  <main>
+    <h1>My Poems</h1>
+    <p>All poems are written by me, in my home language or in English.</p>
+
+    <!-- Tlačidlá -->
+    <div class="buttons">
+      <button onclick="alert('Dobry vecer')">EN</button>
+      <button onclick="alert('Zobrazuje sa Poem 2')">SK</button>
+    </div>
+  </main>
+
+  <!-- Pätička -->
+  <footer>
+    <a href="https://www.instagram.com/_kubuskooo_/" target="_blank">By Beleth</a>
+  </footer>
+
+</body>
+</html>

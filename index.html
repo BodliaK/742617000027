@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>742617000027</title>
+  <title>Beleth</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -12,46 +16,53 @@
       color: red;
       font-family: 'Share Tech Mono', monospace;
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 100%;
+      background-color: black;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      border-bottom: 1px solid red;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: none; /* Skryté pred prihlásením */
+    }
+
+    nav a {
+      color: red;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4c4c;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
+      padding: 2rem;
     }
 
-    .glitch {
-      font-size: 3rem;
-      position: relative;
-      color: red;
-      animation: glitch 1s infinite;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
-      20% { text-shadow: -2px 2px lime, 2px -2px magenta; }
-      40% { text-shadow: 2px 2px yellow, -2px -2px blue; }
-      60% { text-shadow: -2px 0 red, 2px 0 cyan; }
-      80% { text-shadow: 2px -2px lime, -2px 2px magenta; }
-      100% { text-shadow: 0 0 0 red; }
-    }
-
-    p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: gray;
+    #password-box, #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
 
     #content {
       display: none;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #password-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     input[type="password"] {
@@ -62,7 +73,6 @@
       background: black;
       color: red;
       outline: none;
-      margin-bottom: 0.5rem;
       width: 250px;
       text-align: center;
     }
@@ -75,7 +85,7 @@
       background: black;
       color: red;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
     button:hover {
@@ -92,9 +102,9 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 1rem;
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid red;
     }
 
     footer a {
@@ -110,30 +120,44 @@
   </style>
 </head>
 <body>
-  <div id="password-box">
-    <input type="password" id="password-input" placeholder="Enter password" />
-    <button onclick="checkPassword()">Submit</button>
-    <div id="error">Wrong password!</div>
-  </div>
 
-  <div id="content">
-    <div class="glitch">742617000027</div>
-    <p>You shouldn't be here.</p>
-  </div>
+  <!-- Navigácia (skrytá pred prihlásením) -->
+  <nav id="nav">
+    <a href="#domov">Home</a>
+    <a href="info.html">Info</a>
+    <a href="poems.html">Poems</a>
+  </nav>
 
+  <!-- Hlavný obsah -->
+  <main>
+    <div id="password-box">
+      <input type="password" id="password-input" placeholder="Enter password" />
+      <button onclick="checkPassword()">Submit</button>
+      <div id="error">Wrong password! Get the fuck out!</div>
+    </div>
+
+    <div id="content">
+      <p>Welcome to the protected section.</p>
+      <!-- Ďalší obsah po prihlásení -->
+    </div>
+  </main>
+
+  <!-- Pätička -->
   <footer>
     <a href="https://www.instagram.com/_kubuskooo_/" target="_blank">By Beleth</a>
   </footer>
 
   <script>
-    const correctPassword = 'letmein'; // zmeň podľa potreby
+    const correctPassword = ''; // nastaviť podľa potreby
 
     function checkPassword() {
       const input = document.getElementById('password-input').value;
       const errorMsg = document.getElementById('error');
-      if(input === correctPassword) {
+      if (input === correctPassword) {
         document.getElementById('password-box').style.display = 'none';
         document.getElementById('content').style.display = 'flex';
+        document.getElementById('nav').style.display = 'flex'; // zobrazí menu
+        errorMsg.style.visibility = 'hidden';
       } else {
         errorMsg.style.visibility = 'visible';
       }
